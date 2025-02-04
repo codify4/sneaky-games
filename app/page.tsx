@@ -73,7 +73,7 @@ export default function Page() {
                 <h6 className="inline-block rounded-lg bg-neon px-3 py-1 text-black">About Us</h6>
                 <h2 className="font-bold tracking-tighter text-5xl">Gaming Made Simple</h2>
                 <p className="max-w-[600px] text-gray-500 text-xl">
-                  We're passionate gamers who believe that great games should be accessible to everyone. Our platform
+                  We{"'"}re passionate gamers who believe that great games should be accessible to everyone. Our platform
                   brings together the best free-to-play games from around the web.
                 </p>
               </header>
