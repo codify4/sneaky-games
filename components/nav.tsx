@@ -25,13 +25,13 @@ export function Nav() {
 
         <div className="flex flex-1 items-center justify-between">
           <ul className="flex items-center space-x-6">
-            <Link href="/games" className="text-sm font-medium transition-colors ">
+            <Link href="/games" className="text-sm font-medium">
               Games
             </Link>
-            <Link href="/about" className="text-sm font-medium transition-colors ">
+            <Link href="#about" className="text-sm font-medium">
               About Us
             </Link>
-            <Link href="/suggest" className="text-sm font-medium transition-colors">
+            <Link href="/suggestions" className="text-sm font-medium">
               Suggest
             </Link>
           </ul>
