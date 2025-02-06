@@ -36,9 +36,11 @@ export function Nav() {
             </Link>
           </ul>
           <div className="flex items-center space-x-4">
-            <Button className="bg-neon hover:bg-neon/70 text-black">
-              Sign Up
-            </Button>
+            <Link href="/signin">
+              <Button className="bg-neon hover:bg-neon/70 text-black px-10 rounded-lg">
+                Sign Up
+              </Button>
+            </Link>
           </div>
         </div>
       </nav>
