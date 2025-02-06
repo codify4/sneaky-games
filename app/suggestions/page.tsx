@@ -17,7 +17,6 @@ export default function SuggestionsPage() {
             name="name"
             placeholder="Enter game name"
             required
-            className="rounded-xl"
           />
           <p className="text-sm text-muted-foreground">
             The name of the game you want to suggest.
@@ -30,7 +29,7 @@ export default function SuggestionsPage() {
             id="description"
             name="description"
             placeholder="Tell us about the game..."
-            className="resize-none rounded-xl"
+            className="resize-none"
             required
           />
           <p className="text-sm text-muted-foreground">

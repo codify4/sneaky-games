@@ -149,7 +149,7 @@ export default function GamesPage() {
                 <Input
                   type="search"
                   placeholder="Search games..."
-                  className="pl-10 rounded-xl"
+                  className="pl-10"
                 />
               </div>
             </div>

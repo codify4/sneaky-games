@@ -50,16 +50,15 @@ export function LoginForm({
                     type="email"
                     placeholder="m@example.com"
                     required
-                    className="rounded-xl"
                   />
                 </div>
                 <div className="grid gap-2">
                   <div className="flex items-center">
                     <Label htmlFor="password">Password</Label>
                   </div>
-                  <Input id="password" type="password" required className="rounded-xl"/>
+                  <Input id="password" type="password" required />
                 </div>
-                <Button type="submit" className="w-full bg-neon hover:bg-neon/80">
+                <Button type="submit" className="w-full bg-neon hover:bg-neon/80 text-black">
                   Sign In
                 </Button>
               </div>
