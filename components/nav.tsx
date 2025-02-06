@@ -28,7 +28,7 @@ export function Nav() {
             <Link href="/games" className="text-sm font-medium">
               Games
             </Link>
-            <Link href="#about" className="text-sm font-medium">
+            <Link href="/about" className="text-sm font-medium">
               About Us
             </Link>
             <Link href="/suggestions" className="text-sm font-medium">
