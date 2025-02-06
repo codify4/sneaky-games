@@ -9,6 +9,8 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Users } from "lucide-react"
+import Link from "next/link"
 
 export function LoginForm({
   className,
@@ -61,6 +63,12 @@ export function LoginForm({
                 <Button type="submit" className="w-full bg-neon hover:bg-neon/80 text-black">
                   Sign In
                 </Button>
+                <Link href="/games?guest=true">
+                  <Button variant="outline" className="w-full">
+                    <Users />
+                    Explore as a Guest
+                  </Button>
+                </Link>
               </div>
             </div>
           </form>
