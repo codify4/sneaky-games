@@ -1,16 +1,11 @@
 import { notFound } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { GamepadIcon, Info } from "lucide-react"
+import { Info } from "lucide-react"
 import { games } from "@/lib/data"
 
-interface GamePageProps {
-  params: {
-    id: string
-  }
-}
 
-export default function GamePage({ params }: GamePageProps) {
+export default function GamePage({ params }: { params: { id: string } }) {
   const game = games.find((g) => g.id === params.id)
 
   if (!game) {
