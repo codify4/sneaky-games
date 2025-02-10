@@ -19,10 +19,12 @@ export default function Page() {
                   Jump into thousands of free games. No downloads required. Start playing right away!
                 </p>
               </div>
-              <Button className="bg-neon text-black hover:bg-neon/90 px-5 py-2">
-                Start Playing
-                <GameController className="ml-2 h-4 w-4" />
-              </Button>
+              <a href="/signin">
+                <Button className="bg-neon text-black hover:bg-neon/90 px-5 py-2">
+                  Start Playing
+                  <GameController className="ml-2 h-4 w-4" />
+                </Button>
+              </a>
             </div>
         </div>
       </section>

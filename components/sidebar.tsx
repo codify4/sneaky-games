@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { CircleUser, GamepadIcon, HomeIcon } from 'lucide-react'
-import { categories, games } from "@/app/games/page"
+import { categories, games } from "@/lib/data"
 
 const Sidebar = () => {
   return (
@@ -14,7 +14,7 @@ const Sidebar = () => {
             <span>Home</span>
           </Link>
           <Link 
-            href="/settings"
+            href="/games/account"
             className="flex items-center space-x-2 rounded-lg px-3 py-2 hover:bg-gray-100"
           >
             <CircleUser className="h-5 w-5" />
