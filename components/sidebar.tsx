@@ -41,7 +41,7 @@ const Sidebar = () => {
                 {categories.map((category) => (
                   <Link
                     key={category}
-                    href={`/games?category=${category}`}
+                    href={"/games"}
                     className="flex items-center space-x-2 rounded-lg px-3 py-2 text-sm hover:bg-gray-100"
                   >
                     <li className="flex flex-row items-center space-x-2">
