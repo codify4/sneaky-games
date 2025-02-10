@@ -10,11 +10,11 @@ export default function GamesPage() {
 
       {/* Main Content */}
       <main className="flex-1 overflow-auto">
-        <div className="container mx-auto p-6">
+        <div className="container mx-auto p-6 md:p-8 lg:p-12">
           <header className="mb-8 space-y-4">
             <div className="flex items-center justify-between">
               <h1 className="text-3xl font-bold">Games</h1>
-              <div className="relative w-64">
+              <div className="relative w-64 md:w-auto">
                 <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-gray-500" />
                 <Input
                   type="search"
@@ -40,7 +40,7 @@ export default function GamesPage() {
           {/* Featured Games Section */}
           <section className="mb-12">
             <h2 className="mb-4 text-2xl font-bold">Featured Games</h2>
-            <div className="grid gap-6 grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-3">
               {games.slice(0, 3).map((game) => (
                 <GameCard
                   key={game.id}
@@ -56,7 +56,7 @@ export default function GamesPage() {
           {/* All Games Section */}
           <section>
             <h2 className="mb-4 text-2xl font-bold">All Games</h2>
-            <div className="grid gap-6 grid-cols-4">
+            <div className="grid gap-6 md:grid-cols-4 lg:grid-cols-4">
               {games.map((game) => (
                 <GameCard
                   key={game.id}

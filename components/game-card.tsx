@@ -12,7 +12,7 @@ interface GameCardProps {
 export function GameCard({ id, name, creator, imageUrl }: GameCardProps) {
   return (
     <Link href={`/games/${id}`}>
-      <Card className="overflow-hidden transition-all hover:scale-105">
+      <Card className="overflow-hidden transition-all lg:hover:scale-105">
         <div className="aspect-video relative">
           <Image src={imageUrl || "/placeholder.svg"} alt={name} fill className="object-cover" />
         </div>
