@@ -18,7 +18,6 @@ export function Nav() {
               alt="Sneaky Games Logo"
               width={60}
               height={30}
-              className="object-contain"
             />
           </Link>
         </div>
@@ -35,9 +34,9 @@ export function Nav() {
               Suggest
             </Link>
           </ul>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 ml-3">
             <Link href="/signin">
-              <Button className="bg-neon hover:bg-neon/70 text-black px-10 rounded-lg">
+              <Button className="bg-neon hover:bg-neon/70 text-black lg:px-10 rounded-lg">
                 Sign Up
               </Button>
             </Link>

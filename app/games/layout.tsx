@@ -1,8 +1,5 @@
-import { Inter } from "next/font/google"
 import type React from "react" 
 import Sidebar from "@/components/sidebar"
-
-const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
   title: "Sneaky Games | Games List",

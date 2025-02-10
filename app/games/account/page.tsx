@@ -1,14 +1,13 @@
 "use client"
 
-import { useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { LogOut, Upload } from 'lucide-react'
-import { favoriteGames, games } from "@/lib/data"
+import { LogOut } from 'lucide-react'
+import { games } from "@/lib/data"
 
 export default function AccountPage() {
 
@@ -69,7 +68,7 @@ export default function AccountPage() {
           {games.slice(0, 3).map((game) => (
             <a key={game.id} href={`/games/${game.id}`} className="aspect-square overflow-hidden rounded-lg cursor-pointer">
               <Image
-                src={game.imageUrl || "/placeholder.svg"}
+                src={game.imageUrl}
                 alt={game.name}
                 width={200}
                 height={200}
