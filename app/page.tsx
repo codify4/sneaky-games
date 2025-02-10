@@ -1,6 +1,6 @@
 import { Nav } from "@/components/nav"
 import { Button } from "@/components/ui/button"
-import { GamepadIcon as GameController, Gamepad2, Users, Sparkles, Star, Trophy, ArrowRight } from "lucide-react"
+import { GamepadIcon as GameController, Gamepad2, Sparkles, Trophy } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -8,12 +8,12 @@ export default function Page() {
   return (
     <div className="flex flex-col min-h-screen">
       <Nav />
-      <section className="relative pt-56 overflow-hidden md:pt-64 lg:pt-72">
+      <section className="relative pt-56 overflow-hidden md:pt-64 lg:pt-72 pb-20 lg:pb-0">
         <div className="container mx-auto px-6 md:px-12 lg:px-20">
           <div className="flex items-center justify-center space-x-4 md:space-x-8 lg:space-x-12">
             <div className="flex flex-col items-center justify-center space-y-4 md:space-y-8 lg:space-y-12">
               <div className="flex flex-col items-center justify-center space-y-2 md:space-y-4 lg:space-y-6">
-                <h1 className="flex flex-col items-center justify-center space-y-2 md:space-y-4 lg:space-y-6 tracking-tighter text-6xl md:text-8xl">
+                <h1 className="flex flex-col items-center justify-center space-y-2 md:space-y-4 lg:space-y-6 tracking-tighter text-6xl md:text-7xl lg:text-8xl">
                   <strong className="text-center font-bold">
                     Play Awesome Games
                   </strong> 
@@ -33,7 +33,7 @@ export default function Page() {
               </a>
             </div>
           </div>
-          <div className="mx-auto w-full">
+          <div className="mx-auto w-full hidden lg:block">
             <img src="/screenshot.png" className="w-full animate-fade-in" alt="screenshot of the app" />
           </div>
         </div>
