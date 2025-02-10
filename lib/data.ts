@@ -131,21 +131,3 @@ export const categories = [
     "Shooter",
     "Strategy"
 ]
-
-export const favoriteGames = [
-    {
-      id: 1,
-      name: "Valorant",
-      image: "https://cdn.akamai.steamstatic.com/steam/apps/2231380/header.jpg"
-    },
-    {
-      id: 2,
-      name: "League of Legends",
-      image: "https://cdn.akamai.steamstatic.com/steam/apps/1276790/header.jpg"
-    },
-    {
-      id: 3,
-      name: "Genshin Impact",
-      image: "https://cdn.akamai.steamstatic.com/steam/apps/1623730/header.jpg"
-    }
-  ]
