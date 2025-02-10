@@ -60,7 +60,7 @@ const AboutPage = () => {
               Your browser does not support the video tag.
             </video>
             <iframe width="100%" height="100%" src="https://www.youtube.com/embed/x24KoVNliMk?si=vaG89pIehZluK8LQ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-            <audio controls autoPlay loop className="hidden sm:block">
+            <audio controls className="hidden sm:block">
               <source src="/audio.mp3" type="audio/mp3" />
               Your browser does not support the audio tag.
             </audio>
