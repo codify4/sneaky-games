@@ -4,8 +4,14 @@ import { Card } from "@/components/ui/card"
 import { Info } from "lucide-react"
 import { games } from "@/lib/data"
 
+interface PageProps {
+  params: {
+    id: string
+  }
+  searchParams?: { [key: string]: string | string[] | undefined }
+}
 
-export default function GamePage({ params }: { params: { id: string } }) {
+export default function GamePage({ params }: PageProps) {
   const game = games.find((g) => g.id === params.id)
 
   if (!game) {
@@ -83,4 +89,3 @@ export default function GamePage({ params }: { params: { id: string } }) {
     </div>
   )
 }
-

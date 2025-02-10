@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { LogOut, Upload } from 'lucide-react'
-import { favoriteGames } from "@/lib/data"
+import { favoriteGames, games } from "@/lib/data"
 
 export default function AccountPage() {
 
@@ -66,16 +66,16 @@ export default function AccountPage() {
           Favorite Games
         </h2>
         <div className="grid grid-cols-3 gap-4">
-          {favoriteGames.map((game) => (
-            <div key={game.id} className="aspect-square overflow-hidden rounded-lg cursor-pointer">
+          {games.slice(0, 3).map((game) => (
+            <a key={game.id} href={`/games/${game.id}`} className="aspect-square overflow-hidden rounded-lg cursor-pointer">
               <Image
-                src={game.image || "/placeholder.svg"}
+                src={game.imageUrl || "/placeholder.svg"}
                 alt={game.name}
                 width={200}
                 height={200}
                 className="h-full w-full object-cover transition-transform hover:scale-110"
               />
-            </div>
+            </a>
           ))}
         </div>
       </Card>
