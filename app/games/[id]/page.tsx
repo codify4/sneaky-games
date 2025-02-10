@@ -4,8 +4,9 @@ import { Card } from "@/components/ui/card"
 import { Info } from "lucide-react"
 import { games } from "@/lib/data"
 
-export default async function GamePage({ params }: { params: { id: string } }) {
-  const game = games.find((g) => g.id === params.id)
+export default async function GamePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const game = games.find((g) => g.id === id)
 
   if (!game) {
     notFound()
