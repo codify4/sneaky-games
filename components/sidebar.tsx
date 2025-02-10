@@ -7,13 +7,6 @@ const Sidebar = () => {
     <aside className="w-64 border-r bg-gray-50 p-4">
         <nav className="space-y-2">
           <Link 
-            href="/"
-            className="flex items-center space-x-2 rounded-lg px-3 py-2 hover:bg-gray-100"
-          >
-            <HomeIcon className="h-5 w-5" />
-            <span>Home</span>
-          </Link>
-          <Link 
             href="/games/account"
             className="flex items-center space-x-2 rounded-lg px-3 py-2 hover:bg-gray-100"
           >
@@ -26,16 +19,20 @@ const Sidebar = () => {
             <h4 className="mb-2 px-3 text-sm font-semibold uppercase tracking-wider text-gray-500">
               Categories
             </h4>
-            {categories.map((category) => (
-              <Link
-                key={category}
-                href={`/games?category=${category}`}
-                className="flex items-center space-x-2 rounded-lg px-3 py-2 text-sm hover:bg-gray-100"
-              >
-                <GamepadIcon className="h-4 w-4" />
-                <span>{category}</span>
-              </Link>
-            ))}
+            <ol>
+              {categories.map((category) => (
+                <Link
+                  key={category}
+                  href={`/games?category=${category}`}
+                  className="flex items-center space-x-2 rounded-lg px-3 py-2 text-sm hover:bg-gray-100"
+                >
+                  <li className="flex flex-row items-center space-x-2">
+                    <GamepadIcon className="h-4 w-4" />
+                    <span>{category}</span>
+                  </li>
+                </Link>
+              ))}
+            </ol>
           </div>
 
           {/* Popular Games Section */}

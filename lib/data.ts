@@ -48,7 +48,7 @@ export const games = [
       id: "roblox",
       name: "Roblox",
       creator: "Roblox Corporation",
-      imageUrl: "https://cdn2.unrealengine.com/roblox-on-epic-games-store-1920x1080-9e89a7c8b0c7.jpg",
+      imageUrl: "https://cdn.cloudflare.steamstatic.com/steam/apps/252490/header.jpg",
       category: "Sandbox",
       description: "An online platform where you can play millions of different games created by the community.",
       controls: {
@@ -108,7 +108,7 @@ export const games = [
       id: "brawl-stars",
       name: "Brawl Stars",
       creator: "Supercell",
-      imageUrl: "https://cdn.cloudflare.steamstatic.com/steam/apps/1229016/header.jpg",
+      imageUrl: "https://cdn.akamai.steamstatic.com/steam/apps/1238840/header.jpg",
       category: "Action",
       description: "A fast-paced multiplayer shooter where you collect and upgrade brawlers to compete in various game modes.",
       controls: {
