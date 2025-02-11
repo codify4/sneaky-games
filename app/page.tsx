@@ -36,7 +36,6 @@ export default function Page() {
                 className="w-full aspect-video"
                 controls
                 poster="/screenshot.png"
-                autoPlay
               >
                 <source src="/video.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -56,7 +55,7 @@ export default function Page() {
             </p>
           </header>
           <div className="mx-auto max-w-5xl py-12">
-            <table className="w-full">
+            <table className="w-11/12">
               <thead>
                 <tr className="grid grid-cols-3 gap-6 md:gap-8 lg:gap-12">
                   <th className="font-normal pb-4"><h3 className="text-xl font-bold">Instant Play</h3></th>
