@@ -61,7 +61,7 @@ export default function Page() {
                 <tr className="grid grid-cols-3 gap-6 md:gap-8 lg:gap-12">
                   <th className="font-normal pb-4"><h3 className="text-xl font-bold">Instant Play</h3></th>
                   <th className="font-normal pb-4"><h3 className="text-xl font-bold">New Games Daily</h3></th>
-                  <th className="font-normal pb-4">Competitions</th>
+                  <th className="font-normal pb-4"><h3 className="text-xl font-bold">Competitions</h3></th>
                 </tr>
               </thead>
               <tbody>
@@ -96,13 +96,13 @@ export default function Page() {
       </section>
 
       <section className="flex items-center justify-center flex-col w-full py-12 bg-gray-50">
-        <div className="flex items-center justify-center flex-col mx-auto w-1/2">
+        <div className="flex items-center justify-center flex-col lg:mx-auto w-11/12 lg:w-1/2">
           <h2 className="text-3xl font-bold mb-8 text-center">Featured Content</h2>
           <div className="w-full flex flex-col items-center justify-center">
             {/* Game Preview */}
             <div className="flex items-center justify-center flex-col rounded-lg overflow-hidden w-full">
               <h3 className="text-xl font-semibold mb-4 px-4 pt-4">Game Preview</h3>
-              <iframe src="https://player.twitch.tv/?channel=ninja&parent=sneaky-games.vercel.app" frameBorder="0" allowFullScreen={true} scrolling="no" height="378" width="620"></iframe>
+              <iframe src="https://player.twitch.tv/?channel=ninja&parent=sneaky-games.vercel.app" frameBorder="0" allowFullScreen={true} scrolling="no" height="378" width="100%"></iframe>
             </div>
             
             {/* Game Soundtrack */}
