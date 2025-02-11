@@ -31,7 +31,7 @@ export default function Page() {
               </a>
             </div>
           </div>
-          <div className="mx-auto w-full block">
+          <div className="mx-auto w-full block mt-5">
               <video
                 className="w-full aspect-video"
                 controls
