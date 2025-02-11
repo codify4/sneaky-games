@@ -19,10 +19,12 @@ const AboutPage = () => {
                 </p>
               </header>
               <div className="flex gap-2 flex-row">
-                <Button className="bg-neon hover:bg-neon/70 text-black">
-                  Learn More
-                  <Users className="ml-2 h-4 w-4" />
-                </Button>
+                <a href="/signin">
+                  <Button className="bg-neon hover:bg-neon/70 text-black">
+                    Learn More
+                    <Users className="ml-2 h-4 w-4" />
+                  </Button>
+                </a>
               </div>
             </div>
             <div className="mx-auto grid gap-6 grid-cols-2">
@@ -51,8 +53,6 @@ const AboutPage = () => {
               width="100%"
               height="100%"
               controls
-              autoPlay
-              loop
               muted
               className="rounded-lg shadow-lg"
             >
@@ -60,7 +60,7 @@ const AboutPage = () => {
               Your browser does not support the video tag.
             </video>
             <iframe width="100%" height="100%" src="https://www.youtube.com/embed/x24KoVNliMk?si=vaG89pIehZluK8LQ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-            <audio controls className="hidden sm:block">
+            <audio controls className="block">
               <source src="/audio.mp3" type="audio/mp3" />
               Your browser does not support the audio tag.
             </audio>

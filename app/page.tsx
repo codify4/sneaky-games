@@ -31,7 +31,7 @@ export default function Page() {
               </a>
             </div>
           </div>
-          <div className="mx-auto w-full hidden lg:block">
+          <div className="mx-auto w-full block">
               <video
                 className="w-full aspect-video"
                 controls
@@ -102,7 +102,7 @@ export default function Page() {
             {/* Game Preview */}
             <div className="flex items-center justify-center flex-col rounded-lg overflow-hidden w-full">
               <h3 className="text-xl font-semibold mb-4 px-4 pt-4">Game Preview</h3>
-              <iframe src="https://player.twitch.tv/?channel=ninja&parent=https://sneaky-games.vercel.app/" frameBorder="0" allowFullScreen={true} scrolling="no" height="378" width="620"></iframe>
+              <iframe src="https://player.twitch.tv/?channel=ninja&parent=sneaky-games.vercel.app" frameBorder="0" allowFullScreen={true} scrolling="no" height="378" width="620"></iframe>
             </div>
             
             {/* Game Soundtrack */}
