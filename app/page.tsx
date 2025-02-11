@@ -1,8 +1,6 @@
 import { Nav } from "@/components/nav"
 import { Button } from "@/components/ui/button"
 import { GamepadIcon as GameController, Gamepad2, Sparkles, Trophy } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
 
 export default function Page() {
   return (
@@ -34,10 +32,20 @@ export default function Page() {
             </div>
           </div>
           <div className="mx-auto w-full hidden lg:block">
-            <img src="/screenshot.png" className="w-full animate-fade-in" alt="screenshot of the app" />
+              <video
+                className="w-full aspect-video"
+                controls
+                poster="/screenshot.png"
+                autoPlay
+              >
+                <source src="/video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
           </div>
         </div>
       </section>
+
+      
 
       <section className="w-full py-32 md:py-48 lg:py-64 bg-gray-100">
         <div className="container mx-auto px-6 md:px-12 lg:px-20">
@@ -51,9 +59,9 @@ export default function Page() {
             <table className="w-full">
               <thead>
                 <tr className="grid grid-cols-3 gap-6 md:gap-8 lg:gap-12">
-                  <th className="font-normal text-gray-500 pb-4">Browser Gaming</th>
-                  <th className="font-normal text-gray-500 pb-4">Daily Content</th>
-                  <th className="font-normal text-gray-500 pb-4">Competitions</th>
+                  <th className="font-normal pb-4"><h3 className="text-xl font-bold">Instant Play</h3></th>
+                  <th className="font-normal pb-4"><h3 className="text-xl font-bold">New Games Daily</h3></th>
+                  <th className="font-normal pb-4">Competitions</th>
                 </tr>
               </thead>
               <tbody>
@@ -62,7 +70,6 @@ export default function Page() {
                     <div className="flex h-16 w-16 items-center justify-center rounded-full bg-neon p-3">
                       <Gamepad2 className="h-8 w-8 text-black md:h-12 md:w-12 lg:h-16 lg:w-16" />
                     </div>
-                    <h3 className="text-xl font-bold">Instant Play</h3>
                     <p className="text-base text-gray-500">
                       No downloads needed. Play directly in your browser.
                     </p>
@@ -71,7 +78,6 @@ export default function Page() {
                     <div className="flex h-16 w-16 items-center justify-center rounded-full bg-neon p-3">
                       <Sparkles className="h-8 w-8 text-black md:h-12 md:w-12 lg:h-16 lg:w-16" />
                     </div>
-                    <h3 className="text-xl font-bold">New Games Daily</h3>
                     <p className="text-base text-gray-500">
                       Fresh content added every day for endless entertainment.
                     </p>
@@ -80,7 +86,6 @@ export default function Page() {
                     <div className="flex h-16 w-16 items-center justify-center rounded-full bg-neon p-3">
                       <Trophy className="h-8 w-8 text-black md:h-12 md:w-12 lg:h-16 lg:w-16" />
                     </div>
-                    <h3 className="text-xl font-bold">Compete & Win</h3>
                     <p className="text-base text-gray-500">Join tournaments and climb the leaderboards.</p>
                   </td>
                 </tr>
@@ -90,55 +95,32 @@ export default function Page() {
         </div>
       </section>
 
-      <footer className="w-full border-t bg-gray-100 py-12 md:py-16 lg:py-20">
-        <div className="flex flex-col items-center justify-center mx-auto px-6 md:px-12 lg:px-20">
-          <div className="grid items-center justify-center grid-cols-2">
-            <div className="space-y-4">
-              <Image
-                src="/logo.png"
-                alt="Sneaky Games Logo"
-                width={120}
-                height={40}
-                className="object-contain"
-              />
-              <h5 className="text-gray-500 w-[200px]">
-                Your destination for the best free online games.
-              </h5>
+      <section className="flex items-center justify-center flex-col w-full py-12 bg-gray-50">
+        <div className="flex items-center justify-center flex-col mx-auto w-1/2">
+          <h2 className="text-3xl font-bold mb-8 text-center">Featured Content</h2>
+          <div className="w-full flex flex-col items-center justify-center">
+            {/* Game Preview */}
+            <div className="flex items-center justify-center flex-col rounded-lg overflow-hidden w-full">
+              <h3 className="text-xl font-semibold mb-4 px-4 pt-4">Game Preview</h3>
+              <iframe src="https://player.twitch.tv/?channel=ninja&parent=https://sneaky-games.vercel.app/" frameBorder="0" allowFullScreen={true} scrolling="no" height="378" width="620"></iframe>
             </div>
-            <nav className="space-y-4">
-              <h4>
-                <strong>Quick Links</strong>
-              </h4>
-              <ul className="space-y-2 text-sm text-gray-500">
-                <li>
-                  <Link href="/games">
-                    <em>
-                      <u>Games</u>
-                    </em>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about">
-                    <em>
-                      <u>About Us</u>
-                    </em>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/suggestions">
-                    <em>
-                      <u>Suggestions</u>
-                    </em>
-                  </Link>
-                </li>
-              </ul>
-            </nav>
+            
+            {/* Game Soundtrack */}
+            <div className="rounded-lg overflow-hidden w-full">
+              <h3 className="text-xl font-semibold mb-4 px-4 pt-4">Game Soundtrack</h3>
+              <div className="p-4">
+                <audio
+                  className="w-full"
+                  controls
+                >
+                  <source src="/fn-track.mp3" type="audio/mp3" />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+            </div>
           </div>
-          <small className="mt-8 block border-t pt-8 text-center text-gray-500">
-            {new Date().getFullYear()} Sneaky Games. All rights reserved.
-          </small>
         </div>
-      </footer>
+      </section>
     </div>
   )
 }

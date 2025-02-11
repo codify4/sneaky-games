@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label"
 
 export default function SuggestionsPage() {
   return (
-    <div className="container mx-auto py-10 flex flex-col items-center justify-center">
+    <div className="min-h-svh container mx-auto py-20 flex flex-col items-center justify-center">
       <h1 className="text-2xl font-bold mb-6">Suggest a Game</h1>
       <form className="space-y-8 w-1/2 border p-5 rounded-xl shadow-md">
         <div className="space-y-2">
