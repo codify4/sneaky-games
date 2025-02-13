@@ -3,7 +3,7 @@ const EstereggPage = () => {
         <div className="flex min-h-screen flex-col py-8">
             <div className="container mx-auto"> 
                 <h1 className="flex items-center justify-center text-6xl font-extrabold tracking-wider mb-6 text-center">
-                    <span className="text-neon">🔥</span> <span>Secret Gaming Zone!</span> <span className="text-neon">🔥</span>
+                    <span>🔥</span> <span className="text-red-700">Secret Gaming Zone!</span> <span>🔥</span>
                 </h1>
 
                 <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-12">
