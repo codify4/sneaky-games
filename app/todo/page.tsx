@@ -75,31 +75,29 @@ const TodoPage = () => {
             <Nav />
             <div className="container h-svh mx-auto max-w-2xl mt-20">
                 <h1 className="text-2xl font-bold mb-4">To Do List</h1>
-                <form className="flex mb-4" onSubmit={(e) => addTodo(e)}>
-                    <div className="flex flex-col gap-2 w-full mr-2">
-                        <Input
-                            type="text"
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
-                            placeholder="Add a new task"
-                            className="border border-gray-300 rounded-xl p-5 py-6"
-                        />
-                        <Textarea 
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                            placeholder="Add a description for the task"
-                            className="border border-gray-300 rounded-xl mr-2 p-5 py-6"
-                        />
-                        <Select value={completedBy} onValueChange={(value) => setCompletedBy(value)}>
-                            <SelectTrigger className="py-6 rounded-xl">
-                                <SelectValue placeholder="Select a person" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="ijon">Ijon</SelectItem>
-                                <SelectItem value="ilsen">Ilsen</SelectItem>
-                            </SelectContent>
-                        </Select>
-                    </div>
+                <form className="mb-4 grid gap-4" onSubmit={(e) => addTodo(e)}>
+                    <Input
+                        type="text"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        placeholder="Add a new task"
+                        className="border border-gray-300 rounded-xl p-5 py-6"
+                    />
+                    <Textarea 
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        placeholder="Add a description for the task"
+                        className="border border-gray-300 rounded-xl p-5 py-6"
+                    />
+                    <Select value={completedBy} onValueChange={(value) => setCompletedBy(value)}>
+                        <SelectTrigger className="py-6 rounded-xl">
+                            <SelectValue placeholder="Select a person" />
+                        </SelectTrigger>
+                        <SelectContent className="rounded-xl">
+                            <SelectItem value="ijon" className="py-3 rounded-md">Ijon</SelectItem>
+                            <SelectItem value="ilsen" className="py-3 rounded-md">Ilsen</SelectItem>
+                        </SelectContent>
+                    </Select>
                     <Button
                         type="submit"
                         variant="default"
@@ -111,22 +109,22 @@ const TodoPage = () => {
                 </form>
                 <ul className="flex flex-col items-center justify-center w-full list-disc gap-2">
                     {todos.map((todo, index) => (
-                            <Card className="w-full flex flex-row items-center justify-between px-5 cursor-pointer" key={index}>
-                                <li className="flex items-center justify-between py-3 w-full" onClick={() => toggleComplete(index)}>
-                                    <div className="flex flex-col gap-1">
-                                        <span className={`text-base font-semibold ${todo.completed ? 'line-through' : ''}`}>{todo.title}</span>
-                                        <span className={`text-sm text-neutral-700 ${todo.completed ? 'line-through' : ''}`}>{todo.description}</span>
-                                        {todo.completedBy && (
-                                            <div className="mt-2 inline-block bg-red-500/50 text-red-600 text-xs font-medium px-3 py-1 rounded-full w-fit">
-                                                {todo.completedBy.charAt(0).toUpperCase() + todo.completedBy.slice(1)}
-                                            </div>
-                                        )}
-                                    </div>
-                                </li>
-                                <Button variant="destructive" className="p-3 rounded-lg" onClick={() => removeTodo(index)}>
-                                    <Trash2 size={24} color="white"/>
-                                </Button>
-                            </Card>
+                        <Card className="w-full flex flex-row items-center justify-between px-5 cursor-pointer rounded-2xl" key={index}>
+                            <li className="flex items-center justify-between py-3 w-full" onClick={() => toggleComplete(index)}>
+                                <div className="flex flex-col gap-1">
+                                    <span className={`text-base font-semibold ${todo.completed ? 'line-through' : ''}`}>{todo.title}</span>
+                                    <span className={`text-sm text-neutral-700 ${todo.completed ? 'line-through' : ''}`}>{todo.description}</span>
+                                    {todo.completedBy && (
+                                        <div className="mt-2 inline-block bg-red-500/50 text-red-600 text-xs font-medium px-3 py-1 rounded-full w-fit">
+                                            {todo.completedBy.charAt(0).toUpperCase() + todo.completedBy.slice(1)}
+                                        </div>
+                                    )}
+                                </div>
+                            </li>
+                            <Button variant="destructive" className="p-3 rounded-lg" onClick={() => removeTodo(index)}>
+                                <Trash2 size={24} color="white"/>
+                            </Button>
+                        </Card>
                     ))}
                     
                 </ul>
