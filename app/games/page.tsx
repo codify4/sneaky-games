@@ -10,7 +10,10 @@ import { useState } from 'react'
 
 export default function GamesPage() {
   const [searchValue, setSearchValue] = useState<string>("");
+  const [categoryValue, setCategoryValue] = useState("All Games");
+  
   const searchedGames = data.filter((game) => game.title.toLowerCase().includes(searchValue.toLowerCase()));
+  const filteredGames = data.filter((game) => game.tags.includes(categoryValue.toLocaleLowerCase()));
   
   return (
     <div className="flex min-h-screen">
@@ -20,16 +23,15 @@ export default function GamesPage() {
         <div className="container mx-auto p-6 md:p-8 lg:p-12">
           <header className="mb-8 space-y-4">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between">
-              <h1 className="text-3xl font-bold">Games</h1>
-              <div className="flex flex-row items-center gap-4">
-                <div className="relative w-64 md:w-auto">
+              <div className="flex flex-row items-center gap-4 w-full">
+                <div className="relative w-full">
                   <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-gray-500" />
                   <Input
                     value={searchValue}
                     onChange={(e) => setSearchValue(e.target.value)}
                     type="search"
                     placeholder="Search games..."
-                    className="pl-10"
+                    className="pl-10 w-full py-4 rounded-lg"
                   />
                 </div>
                 <a href="/easteregg">
@@ -40,17 +42,18 @@ export default function GamesPage() {
               </div>
             </div>
             
-            {/* Category Pills */}
+            {/* Category Pills
             <div className="flex flex-wrap gap-2">
               {categories.map((category) => (
                 <button
                   key={category}
                   className="rounded-full bg-gray-100 px-4 py-1 text-sm hover:bg-neon hover:text-neon-foreground"
+                  onClick={() => setCategoryValue(category)}
                 >
                   {category}
                 </button>
               ))}
-            </div>
+            </div> */}
           </header>
 
           {/* Featured Games Section */}
