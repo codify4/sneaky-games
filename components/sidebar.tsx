@@ -5,6 +5,8 @@ import { Sheet, SheetTrigger, SheetContent, SheetHeader } from "@/components/ui/
 import Link from "next/link"
 import { CircleUser, GamepadIcon, Menu, ShieldAlert } from 'lucide-react'
 import { categories, games } from "@/lib/data"
+import data from "@/lib/games.json"
+import { slugify } from "./game-card"
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -116,14 +118,14 @@ const Sidebar = () => {
           <h4 className="mb-2 px-3 text-sm font-semibold uppercase tracking-wider text-gray-500">
             Popular Games
           </h4>
-          {games.slice(0, 5).map((game) => (
+          {data.slice(9, 15).map((game, index) => (
             <Link
-              key={game.id}
-              href={`/games/${game.id}`}
+              key={index}
+              href={`/games/${slugify(game.title)}`} 
               className="flex items-center space-x-2 rounded-lg px-3 py-2 text-sm hover:bg-gray-100"
             >
               <GamepadIcon className="h-4 w-4" />
-              <span>{game.name}</span>
+              <span>{game.title}</span>
             </Link>
           ))}
         </div>

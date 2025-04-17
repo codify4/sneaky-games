@@ -52,8 +52,8 @@ export default function GamesPage() {
               {data.slice(0, 3).map((game) => (
                 <GameCard
                   key={game.title}
-                  name={game.title}
-                  creator={game.description}
+                  title={game.title}
+                  description={game.description}
                   imageUrl={game.image}
                   embedUrl={game.embed}
                 />
@@ -68,8 +68,8 @@ export default function GamesPage() {
               {data.map((game) => (
                 <GameCard
                   key={game.title}
-                  name={game.title}
-                  creator={game.description}
+                  title={game.title}
+                  description={game.description}
                   imageUrl={game.image}
                   embedUrl={game.embed}
                 />
