@@ -20,6 +20,18 @@ const nextConfig: NextConfig = {
         hostname: 'cdn2.unrealengine.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.onlinegames.io',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cloud.onlinegames.io',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

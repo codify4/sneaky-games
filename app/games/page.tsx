@@ -1,8 +1,9 @@
 import { EggFried, Search } from 'lucide-react'
 import { GameCard } from '@/components/game-card'
 import { Input } from "@/components/ui/input"
-import { categories, games } from "@/lib/data"
+import { categories } from "@/lib/data"
 import { Button } from "@/components/ui/button"
+import data from "@/lib/games.json"
 
 export default function GamesPage() {
   return (
@@ -48,13 +49,13 @@ export default function GamesPage() {
           <section className="mb-12">
             <h2 className="mb-4 text-2xl font-bold">Featured Games</h2>
             <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-3">
-              {games.slice(0, 3).map((game) => (
+              {data.slice(0, 3).map((game) => (
                 <GameCard
-                  key={game.id}
-                  id={game.id}
-                  name={game.name}
-                  creator={game.creator}
-                  imageUrl={game.imageUrl}
+                  key={game.title}
+                  name={game.title}
+                  creator={game.description}
+                  imageUrl={game.image}
+                  embedUrl={game.embed}
                 />
               ))}
             </div>
@@ -64,24 +65,17 @@ export default function GamesPage() {
           <section>
             <h2 className="mb-4 text-2xl font-bold">All Games</h2>
             <div className="grid gap-6 md:grid-cols-4 lg:grid-cols-4">
-              {games.map((game) => (
+              {data.map((game) => (
                 <GameCard
-                  key={game.id}
-                  id={game.id}
-                  name={game.name}
-                  creator={game.creator}
-                  imageUrl={game.imageUrl}
+                  key={game.title}
+                  name={game.title}
+                  creator={game.description}
+                  imageUrl={game.image}
+                  embedUrl={game.embed}
                 />
               ))}
             </div>
           </section>
-
-          {/* Load More Button */}
-          <div className="mt-8 flex justify-center">
-            <button className="rounded-lg bg-neon px-6 py-2 text-neon-foreground hover:bg-neon/90">
-              Load More Games
-            </button>
-          </div>
         </div>
       </main>
     </div>

@@ -1,12 +1,12 @@
 import { notFound } from "next/navigation"
-import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Info } from "lucide-react"
-import { games } from "@/lib/data"
+import data from '@/lib/games.json'
+import { slugify } from "@/components/game-card"
 
 export default async function GamePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const game = games.find((g) => g.id === id)
+  const game = data.find((g) => slugify(g.title) === id)
 
   if (!game) {
     notFound()
@@ -20,31 +20,16 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
         <div className="container mx-auto p-6">
           {/* Game Container */}
           <div className="relative mb-6 aspect-video w-full overflow-hidden rounded-lg bg-gray-100">
-            {/* Game Title */}
-            <h1 className="absolute left-4 top-4 text-2xl font-bold">{game.name}</h1>
-
-            {/* Game Preview Image (placeholder for actual game) */}
-            <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${game.imageUrl})` }}
-            />
-
-            {/* Play Button */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <Button size="lg" className="bg-neon text-neon-foreground hover:bg-neon/90">
-                PLAY NOW
-              </Button>
-            </div>
+            <iframe src={game.embed} width="100%" height="100%" frameBorder="no" scrolling="no" allowFullScreen></iframe>
           </div>
 
           {/* Game Info and Controls */}
           <Card className="p-6">
             <div className="mb-4 flex items-center gap-2">
-              <Info className="h-5 w-5" />
-              <h2 className="text-xl font-semibold">Game Info and Controls</h2>
+              <h2 className="text-xl font-semibold">{game.title}</h2>
             </div>
 
-            <div className="grid gap-6 grid-cols-2">
+            <div className="flex">
               {/* Game Details */}
               <div className="space-y-4">
                 <div>
@@ -52,17 +37,15 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
                   <p className="text-sm text-gray-500">{game.description}</p>
                 </div>
                 <div>
-                  <h3 className="mb-2 font-semibold">Creator</h3>
-                  <p className="text-sm text-gray-500">{game.creator}</p>
-                </div>
-                <div>
                   <h3 className="mb-2 font-semibold">Category</h3>
-                  <p className="text-sm text-gray-500">{game.category}</p>
+                  {game.tags.split(',').map((tag, index) => (
+                    <span key={index} className="text-sm bg-red-500/50 mr-2 rounded-full px-2 py-1">{tag}</span>
+                  ))}
                 </div>
               </div>
 
               {/* Controls */}
-              <div>
+              {/* <div>
                 <h3 className="mb-2 font-semibold">Controls</h3>
                 <div className="space-y-2">
                   {Object.entries(game.controls).map(([action, key]) => (
@@ -75,7 +58,7 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
                     </div>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
           </Card>
         </div>
