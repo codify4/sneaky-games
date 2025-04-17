@@ -1,11 +1,17 @@
+'use client'
+
 import { EggFried, Search } from 'lucide-react'
 import { GameCard } from '@/components/game-card'
 import { Input } from "@/components/ui/input"
 import { categories } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 import data from "@/lib/games.json"
+import { useState } from 'react'
 
 export default function GamesPage() {
+  const [searchValue, setSearchValue] = useState<string>("");
+  const searchedGames = data.filter((game) => game.title.toLowerCase().includes(searchValue.toLowerCase()));
+  
   return (
     <div className="flex min-h-screen">
 
@@ -19,6 +25,8 @@ export default function GamesPage() {
                 <div className="relative w-64 md:w-auto">
                   <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-gray-500" />
                   <Input
+                    value={searchValue}
+                    onChange={(e) => setSearchValue(e.target.value)}
                     type="search"
                     placeholder="Search games..."
                     className="pl-10"
@@ -46,26 +54,29 @@ export default function GamesPage() {
           </header>
 
           {/* Featured Games Section */}
-          <section className="mb-12">
-            <h2 className="mb-4 text-2xl font-bold">Featured Games</h2>
-            <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-3">
-              {data.slice(0, 3).map((game) => (
-                <GameCard
-                  key={game.title}
-                  title={game.title}
-                  description={game.description}
-                  imageUrl={game.image}
-                  embedUrl={game.embed}
-                />
-              ))}
-            </div>
-          </section>
+          {searchValue === "" && (
+            <section className="mb-12">
+              <h2 className="mb-4 text-2xl font-bold">Featured Games</h2>
+              <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-3">
+                {data.slice(0, 3).map((game) => (
+                  <GameCard
+                    key={game.title}
+                    title={game.title}
+                    description={game.description}
+                    imageUrl={game.image}
+                    embedUrl={game.embed}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
+          
 
           {/* All Games Section */}
           <section>
             <h2 className="mb-4 text-2xl font-bold">All Games</h2>
             <div className="grid gap-6 md:grid-cols-4 lg:grid-cols-4">
-              {data.map((game) => (
+              {searchedGames.map((game) => (
                 <GameCard
                   key={game.title}
                   title={game.title}
