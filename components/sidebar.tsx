@@ -1,15 +1,29 @@
 'use client'
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Sheet, SheetTrigger, SheetContent, SheetHeader } from "@/components/ui/sheet"
 import Link from "next/link"
 import { CircleUser, GamepadIcon, Menu, ShieldAlert } from 'lucide-react'
 import { categories, games } from "@/lib/data"
 import data from "@/lib/games.json"
 import { slugify } from "./game-card"
+import { useRouter } from "next/navigation"
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "F12"){
+        e.preventDefault();
+        router.push("https://classroom.google.com/");
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [router]);
 
   return (
     <>
