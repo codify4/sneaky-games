@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card"
 import { Info } from "lucide-react"
 import data from '@/lib/games.json'
 import { slugify } from "@/components/game-card"
+import GameContainer from "@/components/game-container"
 
 export default async function GamePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
@@ -19,9 +20,7 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
       <main className="flex-1">
         <div className="container mx-auto p-6">
           {/* Game Container */}
-          <div className="relative mb-6 aspect-video w-full overflow-hidden rounded-lg bg-gray-100">
-            <iframe src={game.embed} width="100%" height="100%" frameBorder="no" scrolling="no" allowFullScreen></iframe>
-          </div>
+          <GameContainer embed={game.embed} />
 
           {/* Game Info and Controls */}
           <Card className="p-6">
@@ -43,22 +42,6 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
                   ))}
                 </div>
               </div>
-
-              {/* Controls */}
-              {/* <div>
-                <h3 className="mb-2 font-semibold">Controls</h3>
-                <div className="space-y-2">
-                  {Object.entries(game.controls).map(([action, key]) => (
-                    <div
-                      key={action}
-                      className="flex items-center justify-between rounded-lg bg-gray-50 p-2"
-                    >
-                      <span className="text-sm capitalize">{action}</span>
-                      <kbd className="rounded bg-gray-200 px-2 py-1 text-xs font-semibold">{key}</kbd>
-                    </div>
-                  ))}
-                </div>
-              </div> */}
             </div>
           </Card>
         </div>
