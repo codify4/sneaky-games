@@ -13,7 +13,7 @@ import { GameCard } from "@/components/game-card"
 export default function AccountPage() {
 
   return (
-    <div className="container mx-auto max-w-3xl px-4 py-8">
+    <div className="container mx-auto max-w-4xl px-4 py-8">
       <h1 className="mb-8 text-center text-2xl font-bold uppercase tracking-wider">
         User Settings
       </h1>
@@ -57,6 +57,7 @@ export default function AccountPage() {
               defaultValue="********"
             />
           </div>
+          <Button type="submit" className="text-black hover:bg-neon/70">Save</Button>
         </form>
       </Card>
 

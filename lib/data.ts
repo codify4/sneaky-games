@@ -125,9 +125,13 @@ export const categories = [
     "All Games",
     "Action",
     "Adventure",
-    "MOBA",
     "RPG",
     "Sandbox",
     "Shooter",
-    "Strategy"
+    "Strategy",
+    "Puzzle",
+    "Sports",
+    "Racing",
+    "Horror",
+    "Survival",
 ]

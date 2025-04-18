@@ -7,11 +7,13 @@ import { CircleUser, GamepadIcon, Menu, ShieldAlert } from 'lucide-react'
 import { categories, games } from "@/lib/data"
 import data from "@/lib/games.json"
 import { slugify } from "./game-card"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
+import { Button } from "./ui/button"
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -24,6 +26,12 @@ const Sidebar = () => {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [router]);
+
+  const handleCategoryClick = (category: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('category', category);
+    router.push(`/games?${params.toString()}`);
+  };
 
   return (
     <>
@@ -59,16 +67,17 @@ const Sidebar = () => {
               </h4>
               <ol>
                 {categories.map((category) => (
-                  <Link
+                  <Button
+                    variant={'ghost'}
                     key={category}
-                    href={"/games"}
-                    className="flex items-center space-x-2 rounded-lg px-3 py-2 text-sm hover:bg-gray-100"
+                    onClick={() => handleCategoryClick(category)}
+                    className="flex items-center space-x-2 rounded-lg px-3 py-2 text-sm w-full text-left"
                   >
                     <li className="flex flex-row items-center space-x-2">
                       <GamepadIcon className="h-4 w-4" />
                       <span>{category}</span>
                     </li>
-                  </Link>
+                  </Button>
                 ))}
               </ol>
             </div>

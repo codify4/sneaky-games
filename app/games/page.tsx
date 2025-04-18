@@ -5,16 +5,35 @@ import { Input } from "@/components/ui/input"
 import { categories } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 import data from "@/lib/games.json"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { EggFried, Search } from 'lucide-react'
+import { useSearchParams } from "next/navigation"
 
 export default function GamesPage() {
+  const searchParams = useSearchParams();
   const [searchValue, setSearchValue] = useState<string>("");
-  const [categoryValue, setCategoryValue] = useState("All Games");
+  const [categoryValue, setCategoryValue] = useState(searchParams.get('category') || "All Games");
   const [gamesToShow, setGamesToShow] = useState(12); // Initial number of games to show
   
-  const searchedGames = data.filter((game) => game.title.toLowerCase().includes(searchValue.toLowerCase()));
-  const filteredGames = data.filter((game) => game.tags.includes(categoryValue.toLocaleLowerCase()));
+  useEffect(() => {
+    const category = searchParams.get('category');
+    if (category) {
+      setCategoryValue(category);
+    } else {
+      setCategoryValue("All Games");
+    }
+  }, [searchParams]);
+  
+  const searchedGames = data.filter((game) => {
+    // First filter by search term
+    const matchesSearch = game.title.toLowerCase().includes(searchValue.toLowerCase());
+    
+    // Then filter by category if not "All Games"
+    const matchesCategory = categoryValue === "All Games" || 
+      game.tags.toLowerCase().includes(categoryValue.toLowerCase());
+    
+    return matchesSearch && matchesCategory;
+  });
   
   const gamesToDisplay = searchedGames.slice(0, gamesToShow);
   const hasMoreGames = searchedGames.length > gamesToShow;
