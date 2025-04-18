@@ -8,7 +8,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { LogOut } from 'lucide-react'
 import data from "@/lib/games.json"
 import { GameCard } from "@/components/game-card"
-import { Suspense } from "react"
 
 function AccountForm() {
   return (
@@ -45,14 +44,6 @@ function AccountForm() {
           <Button type="submit" className="text-black hover:bg-neon/70">Save</Button>
         </form>
       </Card>
-
-      {/* Logout Button */}
-      <div className="flex justify-end">
-        <Button variant="destructive" className="flex items-center gap-2">
-          <LogOut className="h-4 w-4" />
-          Log Out
-        </Button>
-      </div>
     </>
   )
 }
@@ -75,9 +66,7 @@ export default function AccountPage() {
         </div>
       </div>
 
-      <Suspense fallback={<div>Loading...</div>}>
-        <AccountForm />
-      </Suspense>
+      <AccountForm />
 
       {/* Favorite Games Section */}
       <Card className="mb-8 p-6">
@@ -96,6 +85,13 @@ export default function AccountPage() {
           ))}
         </div>
       </Card>
+      {/* Logout Button */}
+      <div className="flex justify-end">
+        <Button variant="destructive" className="flex items-center gap-2">
+          <LogOut className="h-4 w-4" />
+          Log Out
+        </Button>
+      </div>
     </div>
   )
 }
