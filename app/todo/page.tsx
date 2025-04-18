@@ -24,8 +24,10 @@ type Todo = {
     completedBy: string;
 }
 
+import todosData from "@/lib/todos.json"
+
 const TodoPage = () => {
-    const [todos, setTodos] = useState<Todo[]>([]);
+    const [todos, setTodos] = useState<Todo[]>(todosData);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [completedBy, setCompletedBy] = useState('');
@@ -73,7 +75,7 @@ const TodoPage = () => {
     return (
         <>
             <Nav />
-            <div className="container h-svh mx-auto max-w-2xl mt-20">
+            <div className="container h-svh mx-auto max-w-2xl mt-20 flex flex-col">
                 <h1 className="text-2xl font-bold mb-4">To Do List</h1>
                 <form className="mb-4 grid gap-4" onSubmit={(e) => addTodo(e)}>
                     <Input
@@ -107,7 +109,7 @@ const TodoPage = () => {
                         Add
                     </Button>
                 </form>
-                <ul className="flex flex-col items-center justify-center w-full list-disc gap-2">
+                <ul className="flex flex-col items-center justify-start w-full list-disc gap-2 overflow-y-scroll flex-grow pb-4">
                     {todos.map((todo, index) => (
                         <Card className="w-full flex flex-row items-center justify-between px-5 cursor-pointer rounded-2xl" key={index}>
                             <li className="flex items-center justify-between py-3 w-full" onClick={() => toggleComplete(index)}>
@@ -126,7 +128,6 @@ const TodoPage = () => {
                             </Button>
                         </Card>
                     ))}
-                    
                 </ul>
             </div>
         </>
