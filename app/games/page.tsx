@@ -2,7 +2,6 @@
 
 import { GameCard } from '@/components/game-card'
 import { Input } from "@/components/ui/input"
-import { categories } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 import data from "@/lib/games.json"
 import { useState, useEffect } from 'react'
