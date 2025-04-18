@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react"
-import { Sheet, SheetTrigger, SheetContent, SheetHeader } from "@/components/ui/sheet"
+import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 import Link from "next/link"
 import { CircleUser, GamepadIcon, Menu, ShieldAlert } from 'lucide-react'
 import { categories, games } from "@/lib/data"
@@ -42,9 +42,7 @@ const Sidebar = () => {
           </button>
         </SheetTrigger>
         <SheetContent side="left">
-          <SheetHeader>
-            <h2 className="text-sm font-semibold">Menu</h2>
-          </SheetHeader>
+          <SheetTitle>Menu</SheetTitle>
           <nav className="space-y-2">
             <Link
               href="https://classroom.google.com/"
@@ -71,9 +69,9 @@ const Sidebar = () => {
                     variant={'ghost'}
                     key={category}
                     onClick={() => handleCategoryClick(category)}
-                    className="flex items-center space-x-2 rounded-lg px-3 py-2 text-sm w-full text-left"
+                    className="flex items-start justify-start space-x-2 rounded-lg px-3 py-2 text-sm w-full text-left"
                   >
-                    <li className="flex flex-row items-center space-x-2">
+                    <li className="flex flex-row items-start space-x-2">
                       <GamepadIcon className="h-4 w-4" />
                       <span>{category}</span>
                     </li>

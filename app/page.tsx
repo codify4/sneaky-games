@@ -55,41 +55,37 @@ export default function Page() {
             </p>
           </header>
           <div className="mx-auto max-w-5xl py-12">
-            <table className="w-11/12">
-              <thead>
-                <tr className="grid grid-cols-3 gap-6 md:gap-8 lg:gap-12">
-                  <th className="font-normal pb-4"><h3 className="text-xl font-bold">Instant Play</h3></th>
-                  <th className="font-normal pb-4"><h3 className="text-xl font-bold">New Games Daily</h3></th>
-                  <th className="font-normal pb-4"><h3 className="text-xl font-bold">Competitions</h3></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
-                  <td className="flex flex-col items-center space-y-4 text-center">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-neon p-3">
-                      <Gamepad2 className="h-8 w-8 text-black md:h-12 md:w-12 lg:h-16 lg:w-16" />
-                    </div>
-                    <p className="text-base text-gray-500">
-                      No downloads needed. Play directly in your browser.
-                    </p>
-                  </td>
-                  <td className="flex flex-col items-center space-y-4 text-center">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-neon p-3">
-                      <Sparkles className="h-8 w-8 text-black md:h-12 md:w-12 lg:h-16 lg:w-16" />
-                    </div>
-                    <p className="text-base text-gray-500">
-                      Fresh content added every day for endless entertainment.
-                    </p>
-                  </td>
-                  <td className="flex flex-col items-center space-y-4 text-center">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-neon p-3">
-                      <Trophy className="h-8 w-8 text-black md:h-12 md:w-12 lg:h-16 lg:w-16" />
-                    </div>
-                    <p className="text-base text-gray-500">Join tournaments and climb the leaderboards.</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="flex flex-col items-center space-y-4 text-center">
+                <h3 className="text-xl font-bold">Instant Play</h3>
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-neon p-3">
+                  <Gamepad2 className="h-8 w-8 text-black md:h-12 md:w-12 lg:h-16 lg:w-16" />
+                </div>
+                <p className="text-base text-gray-500">
+                  No downloads needed. Play directly in your browser.
+                </p>
+              </div>
+              
+              <div className="flex flex-col items-center space-y-4 text-center">
+                <h3 className="text-xl font-bold">New Games Daily</h3>
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-neon p-3">
+                  <Sparkles className="h-8 w-8 text-black md:h-12 md:w-12 lg:h-16 lg:w-16" />
+                </div>
+                <p className="text-base text-gray-500">
+                  Fresh content added every day for endless entertainment.
+                </p>
+              </div>
+              
+              <div className="flex flex-col items-center space-y-4 text-center">
+                <h3 className="text-xl font-bold">Competitions</h3>
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-neon p-3">
+                  <Trophy className="h-8 w-8 text-black md:h-12 md:w-12 lg:h-16 lg:w-16" />
+                </div>
+                <p className="text-base text-gray-500">
+                  Join tournaments and climb the leaderboards.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

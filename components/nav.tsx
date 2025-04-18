@@ -70,6 +70,9 @@ export function Nav() {
                 <Link href="/suggestions" className="text-base font-medium">
                   Suggest
                 </Link>
+                <Link href="/todo" className="text-sm font-medium">
+                  To Do
+                </Link>
               </ul>
               <div className="flex items-center space-x-4 ml-3">
                 <Link href="/signin">
