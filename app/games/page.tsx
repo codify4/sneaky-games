@@ -1,19 +1,27 @@
 'use client'
 
-import { EggFried, Search } from 'lucide-react'
 import { GameCard } from '@/components/game-card'
 import { Input } from "@/components/ui/input"
 import { categories } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 import data from "@/lib/games.json"
 import { useState } from 'react'
+import { EggFried, Search } from 'lucide-react'
 
 export default function GamesPage() {
   const [searchValue, setSearchValue] = useState<string>("");
   const [categoryValue, setCategoryValue] = useState("All Games");
+  const [gamesToShow, setGamesToShow] = useState(12); // Initial number of games to show
   
   const searchedGames = data.filter((game) => game.title.toLowerCase().includes(searchValue.toLowerCase()));
   const filteredGames = data.filter((game) => game.tags.includes(categoryValue.toLocaleLowerCase()));
+  
+  const gamesToDisplay = searchedGames.slice(0, gamesToShow);
+  const hasMoreGames = searchedGames.length > gamesToShow;
+
+  const loadMoreGames = () => {
+    setGamesToShow(prev => prev + 12); // Load 12 more games
+  };
   
   return (
     <div className="flex min-h-screen">
@@ -41,19 +49,6 @@ export default function GamesPage() {
                 </a>
               </div>
             </div>
-            
-            {/* Category Pills
-            <div className="flex flex-wrap gap-2">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  className="rounded-full bg-gray-100 px-4 py-1 text-sm hover:bg-neon hover:text-neon-foreground"
-                  onClick={() => setCategoryValue(category)}
-                >
-                  {category}
-                </button>
-              ))}
-            </div> */}
           </header>
 
           {/* Featured Games Section */}
@@ -79,7 +74,7 @@ export default function GamesPage() {
           <section>
             <h2 className="mb-4 text-2xl font-bold">All Games</h2>
             <div className="grid gap-6 md:grid-cols-4 lg:grid-cols-4">
-              {searchedGames.map((game) => (
+              {gamesToDisplay.map((game) => (
                 <GameCard
                   key={game.title}
                   title={game.title}
@@ -89,6 +84,16 @@ export default function GamesPage() {
                 />
               ))}
             </div>
+            {hasMoreGames && (
+              <div className="mt-8 flex justify-center">
+                <Button 
+                  onClick={loadMoreGames}
+                  className="px-6 py-2 bg-neon hover:bg-neon/60 text-black rounded-lg"
+                >
+                  Load More Games
+                </Button>
+              </div>
+            )}
           </section>
         </div>
       </main>
