@@ -67,7 +67,8 @@ export default function AccountPage() {
       </div>
 
       <AccountForm />
-
+      
+      {/* MARK: ILSENI */}
       {/* Favorite Games Section */}
       <Card className="mb-8 p-6">
         <h2 className="mb-4 text-center text-xl font-semibold uppercase tracking-wider">

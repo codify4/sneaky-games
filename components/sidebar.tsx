@@ -46,7 +46,7 @@ const Sidebar = () => {
           <nav className="space-y-2">
             <Link
               href="https://classroom.google.com/"
-              className="flex items-center space-x-2 px-3 py-2 mt-2 bg-destructive rounded-full text-white animate-ping"
+              className="flex items-center space-x-2 px-3 py-2 mt-2 bg-green-500 rounded-full text-white animate-ping"
             >
               <ShieldAlert className="h-5 w-5" />
               <span>Panic Button</span>
@@ -102,7 +102,7 @@ const Sidebar = () => {
       <nav className="hidden lg:block w-64 border-r bg-gray-50 p-4 space-y-2">
         <Link
           href="https://classroom.google.com/"
-          className="flex items-center space-x-2 px-3 py-2 bg-destructive rounded-full text-white animate-ping"
+          className="flex items-center space-x-2 px-3 py-2 bg-green-500 rounded-full text-white animate-ping"
         >
           <ShieldAlert className="h-5 w-5" />
           <span>Panic Button</span>
@@ -134,6 +134,7 @@ const Sidebar = () => {
             ))}
           </ol>
         </div>
+        {/* MARK: ILSENI */}
         {/* Popular Games Section */}
         <div className="py-4">
           <h4 className="mb-2 px-3 text-sm font-semibold uppercase tracking-wider text-gray-500">

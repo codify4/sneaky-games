@@ -23,6 +23,7 @@ export function GameList() {
     }
   }, [searchParams]);
   
+  {/* MARK: ILSENI */}
   const searchedGames = data.filter((game) => {
     // First filter by search term
     const matchesSearch = game.title.toLowerCase().includes(searchValue.toLowerCase());
@@ -50,6 +51,7 @@ export function GameList() {
             <div className="flex flex-col lg:flex-row lg:items-center justify-between">
               <div className="flex flex-row items-center gap-4 w-full">
                 <div className="relative w-full">
+                  {/* MARK: ILSENI inputi search bar */}
                   <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-gray-500" />
                   <Input
                     value={searchValue}
